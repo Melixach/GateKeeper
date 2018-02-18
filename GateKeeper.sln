@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateKeeper.Logic", "GateKeeper.Logic\GateKeeper.Logic.csproj", "{6C21B6E2-CE90-4478-AB23-FA9FA6C3150A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateKeeper.Tests", "GateKeeper.Tests\GateKeeper.Tests.csproj", "{038CBB07-D491-431B-A61E-F376BC70D4B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateKeeper.UI", "GateKeeper.UI\GateKeeper.UI.csproj", "{C66CBC0C-3B40-4994-A741-39ABEE89C9EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C21B6E2-CE90-4478-AB23-FA9FA6C3150A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C21B6E2-CE90-4478-AB23-FA9FA6C3150A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C21B6E2-CE90-4478-AB23-FA9FA6C3150A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C21B6E2-CE90-4478-AB23-FA9FA6C3150A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{038CBB07-D491-431B-A61E-F376BC70D4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{038CBB07-D491-431B-A61E-F376BC70D4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{038CBB07-D491-431B-A61E-F376BC70D4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{038CBB07-D491-431B-A61E-F376BC70D4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66CBC0C-3B40-4994-A741-39ABEE89C9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66CBC0C-3B40-4994-A741-39ABEE89C9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66CBC0C-3B40-4994-A741-39ABEE89C9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66CBC0C-3B40-4994-A741-39ABEE89C9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

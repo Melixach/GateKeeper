@@ -8,6 +8,8 @@ namespace GateKeeper.Logic
         {
         }
 
+        //just a test
+
         const int AdultOvernightPrice = 50;
         const int MemberOvernightPrice = 45;
         const int TeenOvernightPrice = 35;

@@ -1,0 +1,87 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace GateKeeper
+{
+    [TestClass]
+    public class RegistrationTests
+    {
+        [TestMethod]
+        public void AdultOvernightStartsAtZero()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            Assert.AreEqual(0, registration.AdultOvernightCount);
+        }
+
+        [TestMethod]
+        public void AdultOvernightRegistrationPriceAtZero()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            Assert.AreEqual(0.0, registration.AdultOvernightTotalPrice, 0.001);
+        }
+
+        [TestMethod]
+        public void addAdultOvernightIncrementsAdultOvernightCount()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultOvernight();
+            Assert.AreEqual(1, registration.AdultOvernightCount);
+        }
+
+        [TestMethod]
+        public void addAdultOvernightIncrementsAdultOvernightCountTwiceReturnsTwo()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultOvernight();
+            registration.AddAdultOvernight();
+            Assert.AreEqual(2, registration.AdultOvernightCount);
+        }
+
+        [TestMethod]
+        public void addAdultOvernightSetsAdultOverNightPriceToCostOfSingleOvernight()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultOvernight();
+            Assert.AreEqual(50.00, registration.AdultOvernightTotalPrice);
+        }
+
+        [TestMethod]
+        public void SubtractAdultOvernightdeccrimentsAdultOvernightCount()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultOvernight();
+            registration.SubtractAdultOvernight();
+            Assert.AreEqual(0, registration.AdultOvernightCount);
+        }
+
+        [TestMethod]
+        public void SubtractAdultOvernightdeccrimentsAdultOvernightCountButNotBelowZero()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.SubtractAdultOvernight();
+            Assert.AreEqual(0, registration.AdultOvernightCount);
+        }
+
+        [TestMethod]
+        public void SubtractAdultOvernightRemovesAdultOverNightPriceToCostOfSingleOvernight()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultOvernight();
+            registration.AddAdultOvernight();
+            registration.SubtractAdultOvernight();
+            Assert.AreEqual(50.00, registration.AdultOvernightTotalPrice);
+        }
+
+        [TestMethod]
+        public void AddThreeMemberOvernightsAndSubtractOneEquals90()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddMemberOvernight();
+            registration.AddMemberOvernight();
+            registration.AddMemberOvernight();
+            registration.SubtractMemberOvernight();
+            Assert.AreEqual(90.00, registration.MemberOvernightTotalPrice);
+        }
+
+    }
+}

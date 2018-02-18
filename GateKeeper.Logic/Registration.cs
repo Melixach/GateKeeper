@@ -39,7 +39,6 @@ namespace GateKeeper.Logic
         public int CompCount { get; private set; }
         public int OtherCount { get; private set; }
         public int DaytripConversionCount { get; private set; }
-        public int TotalCount { get; private set; }
         public int TotalPrice { get; private set; }
 
         public void AddAdultOvernight()
@@ -239,16 +238,6 @@ namespace GateKeeper.Logic
                 DaytripConversionCount--;
             }
         }
-
-        public void FindTotalCount()
-        {
-            TotalCount = AdultOvernightCount + MemberOvernightCount + TeenOvernightCount +
-                  ChildOvernightCount + Under6OvernightCount + AdultDaytripCount +
-                  MemberDaytripCount + TeenDaytripCount + ChildDaytripCount + Under6DaytripCount +
-                  LocalCount + CompCount + OtherCount + DaytripConversionCount; }
-
-
-
 
         public void FindTotalPrice()
         {

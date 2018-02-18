@@ -127,17 +127,6 @@ namespace GateKeeper
             Assert.AreEqual(110, registration.TotalPrice);
         }
 
-        [TestMethod]
-        public void AddTwoAdultOvernightOneChildOvernightAndOneUnder6EqualCountsAs4()
-        {
-            var registration = new GateKeeper.Logic.Registration();
-            registration.AddAdultOvernight();
-            registration.AddAdultOvernight();
-            registration.AddChildOvernight();
-            registration.AddUnder6Overnight();
-            registration.FindTotalCount();
-            Assert.AreEqual(4, registration.TotalCount);
-        }
 
         [TestMethod]
         public void AddTwoAdultDaytripSubtractOneAndAddTwoEquals75()
@@ -150,6 +139,19 @@ namespace GateKeeper
             registration.AddAdultDaytrip();
             registration.FindTotalPrice();
             Assert.AreEqual(75, registration.TotalPrice);
+        }
+
+        [TestMethod]
+        public void AddOneMemberDaytripOneTeenDaytripTwoChildDaytripandOneUnder6DaytripEquals40()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddMemberDaytrip();
+            registration.AddTeenDaytrip();
+            registration.AddChildDaytrip();
+            registration.AddChildDaytrip();
+            registration.AddUnder6Daytrip();
+            registration.FindTotalPrice();
+            Assert.AreEqual(40, registration.TotalPrice);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace GateKeeper
         public void AdultOvernightRegistrationPriceAtZero()
         {
             var registration = new GateKeeper.Logic.Registration();
-            Assert.AreEqual(0.0, registration.AdultOvernightTotalPrice, 0.001);
+            Assert.AreEqual(0, registration.AdultOvernightTotalPrice);
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace GateKeeper
         {
             var registration = new GateKeeper.Logic.Registration();
             registration.AddAdultOvernight();
-            Assert.AreEqual(50.00, registration.AdultOvernightTotalPrice);
+            Assert.AreEqual(50, registration.AdultOvernightTotalPrice);
         }
 
         [TestMethod]
@@ -69,7 +69,7 @@ namespace GateKeeper
             registration.AddAdultOvernight();
             registration.AddAdultOvernight();
             registration.SubtractAdultOvernight();
-            Assert.AreEqual(50.00, registration.AdultOvernightTotalPrice);
+            Assert.AreEqual(50, registration.AdultOvernightTotalPrice);
         }
 
         [TestMethod]
@@ -80,8 +80,78 @@ namespace GateKeeper
             registration.AddMemberOvernight();
             registration.AddMemberOvernight();
             registration.SubtractMemberOvernight();
-            Assert.AreEqual(90.00, registration.MemberOvernightTotalPrice);
+            Assert.AreEqual(90, registration.MemberOvernightTotalPrice);
         }
 
+        [TestMethod]
+        public void SubtractoneTeenandAddTwoTeensEquals70()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.SubtractMemberOvernight();
+            registration.AddTeenOvernight();
+            registration.AddTeenOvernight();
+            Assert.AreEqual(70, registration.TeenOvernightTotalPrice);
+        }
+
+        [TestMethod]
+        public void AddTwoMemberOvernightsAndOneTeenEquals125()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddMemberOvernight();
+            registration.AddMemberOvernight();
+            registration.AddTeenOvernight();
+            Assert.AreEqual(125, registration.MemberOvernightTotalPrice + registration.TeenOvernightTotalPrice);
+        }
+
+        [TestMethod]
+        public void AddTwoMemberOvernightsAndThreeChildOvernightEquals120()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddMemberOvernight();
+            registration.AddMemberOvernight();
+            registration.AddChildOvernight();
+            registration.AddChildOvernight();
+            registration.AddChildOvernight();
+            Assert.AreEqual(120, registration.MemberOvernightTotalPrice + registration.ChildOvernightTotalPrice);
+        }
+
+        [TestMethod]
+        public void AddTwoAdultOvernightOneChildOvernightAndOneUnder6Equals110()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultOvernight();
+            registration.AddAdultOvernight();
+            registration.AddChildOvernight();
+            registration.AddUnder6Overnight();
+            registration.FindTotalPrice();
+            Assert.AreEqual(110, registration.TotalPrice);
+        }
+
+
+        [TestMethod]
+        public void AddTwoAdultDaytripSubtractOneAndAddTwoEquals75()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddAdultDaytrip();
+            registration.AddAdultDaytrip();
+            registration.SubtractAdultDaytrip();
+            registration.AddAdultDaytrip();
+            registration.AddAdultDaytrip();
+            registration.FindTotalPrice();
+            Assert.AreEqual(75, registration.TotalPrice);
+        }
+
+        [TestMethod]
+        public void AddOneMemberDaytripOneTeenDaytripTwoChildDaytripandOneUnder6DaytripEquals40()
+        {
+            var registration = new GateKeeper.Logic.Registration();
+            registration.AddMemberDaytrip();
+            registration.AddTeenDaytrip();
+            registration.AddChildDaytrip();
+            registration.AddChildDaytrip();
+            registration.AddUnder6Daytrip();
+            registration.FindTotalPrice();
+            Assert.AreEqual(40, registration.TotalPrice);
+        }
     }
 }

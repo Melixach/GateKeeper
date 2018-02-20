@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace GateKeeper.Logic
 {
     public class Registration
@@ -8,7 +7,9 @@ namespace GateKeeper.Logic
         public Registration()
         {
         }
-     
+
+        //just a test
+
         const int AdultOvernightPrice = 50;
         const int MemberOvernightPrice = 45;
         const int TeenOvernightPrice = 35;
@@ -182,9 +183,9 @@ namespace GateKeeper.Logic
 
         public void SubtractUnder6hildDaytrip()
         {
-            if (Under6DaytripCount > 0)
+            if (ChildDaytripCount > 0)
             {
-                Under6DaytripCount--;
+                ChildDaytripCount--;
             }
         }
 

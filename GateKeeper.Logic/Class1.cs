@@ -8,5 +8,6 @@ namespace GateKeeper.Logic
 {
     public class Class1
     {
+//todo delete this file
     }
 }

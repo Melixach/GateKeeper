@@ -88,9 +88,9 @@ namespace GateKeeper
         {
             var registration = new GateKeeper.Logic.Registration();
             registration.SubtractMemberOvernight();
-            registration.AddTeenOvernight();
-            registration.AddTeenOvernight();
-            Assert.AreEqual(70, registration.TeenOvernightTotalPrice);
+            registration.AddYouthOvernight();
+            registration.AddYouthOvernight();
+            Assert.AreEqual(70, registration.YouthOvernightTotalPrice);
         }
 
         [TestMethod]
@@ -99,8 +99,8 @@ namespace GateKeeper
             var registration = new GateKeeper.Logic.Registration();
             registration.AddMemberOvernight();
             registration.AddMemberOvernight();
-            registration.AddTeenOvernight();
-            Assert.AreEqual(125, registration.MemberOvernightTotalPrice + registration.TeenOvernightTotalPrice);
+            registration.AddYouthOvernight();
+            Assert.AreEqual(125, registration.MemberOvernightTotalPrice + registration.YouthOvernightTotalPrice);
         }
 
         [TestMethod]
@@ -146,7 +146,7 @@ namespace GateKeeper
         {
             var registration = new GateKeeper.Logic.Registration();
             registration.AddMemberDaytrip();
-            registration.AddTeenDaytrip();
+            registration.AddYouthDaytrip();
             registration.AddChildDaytrip();
             registration.AddChildDaytrip();
             registration.AddUnder6Daytrip();

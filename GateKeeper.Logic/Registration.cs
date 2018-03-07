@@ -11,19 +11,19 @@ namespace GateKeeper.Logic
      
         const int AdultOvernightPrice = 50;
         const int MemberOvernightPrice = 45;
-        const int TeenOvernightPrice = 35;
+        const int YouthOvernightPrice = 35;
         const int ChildOvernightPrice = 10;
         const int AdultDaytripPrice = 25;
         const int MemberDaytripPrice = 20;
-        const int TeenDaytripPrice = 10;
+        const int YouthDaytripPrice = 10;
         const int ChildDaytripPrice = 5;
 
         public int AdultOvernightCount { get; private set; }
         public int AdultOvernightTotalPrice { get; private set; }
         public int MemberOvernightCount { get; private set; }
         public int MemberOvernightTotalPrice { get; private set; }
-        public int TeenOvernightCount { get; private set; }
-        public int TeenOvernightTotalPrice { get; private set; }
+        public int YouthOvernightCount { get; private set; }
+        public int YouthOvernightTotalPrice { get; private set; }
         public int ChildOvernightCount { get; private set; }
         public int ChildOvernightTotalPrice { get; private set; }
         public int Under6OvernightCount { get; private set; }
@@ -31,8 +31,8 @@ namespace GateKeeper.Logic
         public int AdultDaytripTotalPrice { get; private set; }
         public int MemberDaytripCount { get; private set; }
         public int MemberDaytripTotalPrice { get; private set; }
-        public int TeenDaytripCount { get; private set; }
-        public int TeenDaytripTotalPrice { get; private set; }
+        public int YouthDaytripCount { get; private set; }
+        public int YouthDaytripTotalPrice { get; private set; }
         public int ChildDaytripCount { get; private set; }
         public int ChildDaytripTotalPrice { get; private set; }
         public int Under6DaytripCount { get; private set; }
@@ -72,19 +72,19 @@ namespace GateKeeper.Logic
             MemberOvernightTotalPrice = MemberOvernightPrice * MemberOvernightCount;
         }
 
-        public void AddTeenOvernight()
+        public void AddYouthOvernight()
         {
-            TeenOvernightCount++;
-            TeenOvernightTotalPrice = TeenOvernightPrice * TeenOvernightCount;
+            YouthOvernightCount++;
+            YouthOvernightTotalPrice = YouthOvernightPrice * YouthOvernightCount;
         }
 
-        public void SubtractTeenOvernight()
+        public void SubtractYouthOvernight()
         {
-            if (TeenOvernightCount > 0)
+            if (YouthOvernightCount > 0)
             {
-                TeenOvernightCount--;
+                YouthOvernightCount--;
             }
-            TeenOvernightTotalPrice = TeenOvernightPrice * TeenOvernightCount;
+            YouthOvernightTotalPrice = YouthOvernightPrice * YouthOvernightCount;
         }
 
         public void AddChildOvernight()
@@ -145,19 +145,19 @@ namespace GateKeeper.Logic
             MemberDaytripTotalPrice = MemberDaytripPrice * MemberDaytripCount;
         }
 
-        public void AddTeenDaytrip()
+        public void AddYouthDaytrip()
         {
-            TeenDaytripCount++;
-            TeenDaytripTotalPrice = TeenDaytripPrice * TeenDaytripCount;
+            YouthDaytripCount++;
+            YouthDaytripTotalPrice = YouthDaytripPrice * YouthDaytripCount;
         }
 
-        public void SubtractTeenDaytrip()
+        public void SubtractYouthDaytrip()
         {
-            if (TeenDaytripCount > 0)
+            if (YouthDaytripCount > 0)
             {
-                TeenDaytripCount--;
+                YouthDaytripCount--;
             }
-            TeenDaytripTotalPrice = TeenDaytripPrice * TeenDaytripCount;
+            YouthDaytripTotalPrice = YouthDaytripPrice * YouthDaytripCount;
         }
 
         public void AddChildDaytrip()
@@ -180,7 +180,7 @@ namespace GateKeeper.Logic
             Under6DaytripCount++;
         }
 
-        public void SubtractUnder6hildDaytrip()
+        public void SubtractUnder6ChildDaytrip()
         {
             if (Under6DaytripCount > 0)
             {
@@ -242,8 +242,8 @@ namespace GateKeeper.Logic
 
         public void FindTotalPrice()
         {
-            TotalPrice = AdultOvernightTotalPrice + MemberOvernightTotalPrice + TeenOvernightTotalPrice +
-            ChildOvernightTotalPrice + AdultDaytripTotalPrice + MemberDaytripTotalPrice + TeenDaytripTotalPrice +
+            TotalPrice = AdultOvernightTotalPrice + MemberOvernightTotalPrice + YouthOvernightTotalPrice +
+            ChildOvernightTotalPrice + AdultDaytripTotalPrice + MemberDaytripTotalPrice + YouthDaytripTotalPrice +
             ChildDaytripTotalPrice;
          }
         

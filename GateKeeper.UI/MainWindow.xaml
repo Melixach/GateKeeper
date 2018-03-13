@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GateKeeper.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="525">
-    <Grid>
+    <Grid Margin="-2,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -14,6 +14,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="28"></RowDefinition>
             <RowDefinition Height="28"></RowDefinition>
             <RowDefinition Height="28"></RowDefinition>
             <RowDefinition Height="28"></RowDefinition>
@@ -37,28 +38,28 @@
         <Button x:Name="plusMemberOvernightAction" Grid.Column="3" Grid.Row="2" Click="PerformAddMemberOvernight">+</Button>
         <Button x:Name="minusYouthOvernightAction" Grid.Column="1" Grid.Row="3" Click="PerformMinusYouthOvernightAction">-</Button>
         <Button x:Name="plusYouthOvernightAction" Grid.Column="3" Grid.Row="3" Click="PerformAddYouthOvernightAction">+</Button>
-        <Button x:Name="minusChildOvernightAction" Grid.Column="1" Grid.Row="4">-</Button>
-        <Button x:Name="plusChildOvernightAction" Grid.Column="3" Grid.Row="4">+</Button>
-        <Button x:Name="minusUnder6OvernightAction" Grid.Column="1" Grid.Row="5">-</Button>
-        <Button x:Name="plusUnder6OvernightAction" Grid.Column="3" Grid.Row="5">+</Button>
-        <Button x:Name="minusAdultDaytripAction" Grid.Column="1" Grid.Row="6">-</Button>
-        <Button x:Name="plusAdultDaytripAction" Grid.Column="3" Grid.Row="6">+</Button>
-        <Button x:Name="minusMemberDaytripAction" Grid.Column="1" Grid.Row="7">-</Button>
-        <Button x:Name="plusMemberDaytripAction" Grid.Column="3" Grid.Row="7">+</Button>
-        <Button x:Name="minusYouthDaytripAction" Grid.Column="1" Grid.Row="8" Height="29" VerticalAlignment="Top">-</Button>
-        <Button x:Name="plusYouthDaytripAction" Grid.Column="3" Grid.Row="8">+</Button>
-        <Button x:Name="minusChildDaytripAction" Grid.Column="1" Grid.Row="9">-</Button>
-        <Button x:Name="plusChildDaytripAction" Grid.Column="3" Grid.Row="9">+</Button>
-        <Button x:Name="minusUnder6DaytripAction" Grid.Column="1" Grid.Row="10">-</Button>
-        <Button x:Name="plusUnder6DaytripAction" Grid.Column="3" Grid.Row="10">+</Button>
-        <Button x:Name="minusDaytripConversion" Grid.Column="1" Grid.Row="11">-</Button>
-        <Button x:Name="plusDaytripConversionAction" Grid.Column="3" Grid.Row="11">+</Button>
-        <Button x:Name="minusLocalAction" Grid.Column="1" Grid.Row="12">-</Button>
-        <Button x:Name="plusLocalAction" Grid.Column="3" Grid.Row="12">+</Button>
-        <Button x:Name="minusCompAction" Grid.Column="1" Grid.Row="13">-</Button>
-        <Button x:Name="plusCompAction" Grid.Column="3" Grid.Row="13">+</Button>
-        <Button x:Name="minusOtherAction" Grid.Column="1" Grid.Row="14">-</Button>
-        <Button x:Name="plusOtherAction" Grid.Column="3" Grid.Row="14">+</Button>
+        <Button x:Name="minusChildOvernightAction" Grid.Column="1" Grid.Row="4" Click="PerformMinusChildOvernight">-</Button>
+        <Button x:Name="plusChildOvernightAction" Grid.Column="3" Grid.Row="4" Click="PerformAddChildOvernight">+</Button>
+        <Button x:Name="minusUnder6OvernightAction" Grid.Column="1" Grid.Row="5" Click="PerformMinusUnder6Overnight">-</Button>
+        <Button x:Name="plusUnder6OvernightAction" Grid.Column="3" Grid.Row="5" Click="PerformAddUnder6Overnight">+</Button>
+        <Button x:Name="minusAdultDaytripAction" Grid.Column="1" Grid.Row="6" Click="PerformMinusAdultDaytrip">-</Button>
+        <Button x:Name="plusAdultDaytripAction" Grid.Column="3" Grid.Row="6" Click="PerformAddAdultDaytrip">+</Button>
+        <Button x:Name="minusMemberDaytripAction" Grid.Column="1" Grid.Row="7" Click="PerformMinusMemberDaytrip">-</Button>
+        <Button x:Name="plusMemberDaytripAction" Grid.Column="3" Grid.Row="7" Click="PerformAddMemberDaytrip">+</Button>
+        <Button x:Name="minusYouthDaytripAction" Grid.Column="1" Grid.Row="8" Height="29" VerticalAlignment="Top" Click="PerformMinusYouthDaytrip">-</Button>
+        <Button x:Name="plusYouthDaytripAction" Grid.Column="3" Grid.Row="8" Click="PerformAddYouthDaytrip">+</Button>
+        <Button x:Name="minusChildDaytripAction" Grid.Column="1" Grid.Row="9" Click="PerformMinusChildDaytrip">-</Button>
+        <Button x:Name="plusChildDaytripAction" Grid.Column="3" Grid.Row="9" Click="PerformAddChildDaytrip">+</Button>
+        <Button x:Name="minusUnder6DaytripAction" Grid.Column="1" Grid.Row="10" Click="PerformMinusUnder6Daytrip">-</Button>
+        <Button x:Name="plusUnder6DaytripAction" Grid.Column="3" Grid.Row="10" Click="PerformAddUnder6Daytrip">+</Button>
+        <Button x:Name="minusDaytripConversion" Grid.Column="1" Grid.Row="11" Click="PerformMinusDaytripConversion">-</Button>
+        <Button x:Name="plusDaytripConversionAction" Grid.Column="3" Grid.Row="11" Click="PerformAddDaytripConversion">+</Button>
+        <Button x:Name="minusLocalAction" Grid.Column="1" Grid.Row="12" Click="PerformMinusLocal">-</Button>
+        <Button x:Name="plusLocalAction" Grid.Column="3" Grid.Row="12" Click="PerformAddLocalDaytrip">+</Button>
+        <Button x:Name="minusCompAction" Grid.Column="1" Grid.Row="13" Click="PerformMinusComp">-</Button>
+        <Button x:Name="plusCompAction" Grid.Column="3" Grid.Row="13" Click="PerformAddComp">+</Button>
+        <Button x:Name="minusOtherAction" Grid.Column="1" Grid.Row="14" Click="PerformMinusOther">-</Button>
+        <Button x:Name="plusOtherAction" Grid.Column="3" Grid.Row="14" Click="PerformAddOther">+</Button>
         <Label Grid.Column="0" Grid.Row="1" >Adult Overnight</Label>
         <Label Grid.Column="0" Grid.Row="2" >Member Overnight</Label>
         <Label Grid.Column="0" Grid.Row="3" >Youth (13-17) Overnight</Label>
@@ -73,19 +74,22 @@
         <Label Grid.Column="0" Grid.Row="12" >Local</Label>
         <Label Grid.Column="0" Grid.Row="13" >Comp</Label>
         <Label Grid.Column="0" Grid.Row="14" >Other</Label>
-        <Label Name="adultOvernightDisplay" Grid.Column="2" Grid.Row="1" ></Label>
-        <Label x:Name="memberOvernightDisplay" Grid.Column="2" Grid.Row="2" ></Label>
-        <Label x:Name="youthOvernightDisplay" Grid.Column="2" Grid.Row="3" ></Label>
-        <Label x:Name="childOvernightDisplay" Grid.Column="2" Grid.Row="4" ></Label>
-        <Label x:Name="under6OvernightDisplay" Grid.Column="2" Grid.Row="5" ></Label>
-        <Label x:Name="adultDaytripDisplay" Grid.Column="2" Grid.Row="6" ></Label>
-        <Label x:Name="memberDaytripDisplay" Grid.Column="2" Grid.Row="7" ></Label>
-        <Label x:Name="youthDaytripDisplay" Grid.Column="2" Grid.Row="8" ></Label>
-        <Label x:Name="childDaytripDisplay" Grid.Column="2" Grid.Row="9" ></Label>
-        <Label x:Name="under6DaytripDisplay" Grid.Column="2" Grid.Row="10" ></Label>
-        <Label x:Name="daytripConversionDisplay" Grid.Column="2" Grid.Row="11" ></Label>
-        <Label x:Name="localDisplay" Grid.Column="2" Grid.Row="12" ></Label>
-        <Label x:Name="compDisplay" Grid.Column="2" Grid.Row="13" ></Label>
-        <Label x:Name="otherDisplay" Grid.Column="2" Grid.Row="14" ></Label>
+        <Label Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Right">Total</Label>
+        <Label Name="adultOvernightDisplay" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="memberOvernightDisplay" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="youthOvernightDisplay" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="childOvernightDisplay" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="under6OvernightDisplay" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="adultDaytripDisplay" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="memberDaytripDisplay" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="youthDaytripDisplay" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="childDaytripDisplay" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="under6DaytripDisplay" Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="daytripConversionDisplay" Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="localDisplay" Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="compDisplay" Grid.Column="2" Grid.Row="13" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="otherDisplay" Grid.Column="2" Grid.Row="14" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="displayTotalCount" Grid.Column="2" Grid.Row="15" FontWeight="Bold" HorizontalAlignment="Center" ></Label>
+        <Label x:Name="displayTotalPrice" Grid.Column="3" Grid.Row="15" FontWeight="Bold" ></Label>
     </Grid>
 </Window>

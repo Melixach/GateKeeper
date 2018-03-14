@@ -2,6 +2,8 @@
 using GateKeeper.Logic;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 
 namespace GateKeeper.UI
 {
@@ -11,10 +13,12 @@ namespace GateKeeper.UI
     public partial class MainWindow : Window
     {
         private List<Registration> registrations = new List<Registration>();
-        private Registration registration = new Registration();
+        private DateTime shiftTime = DateTime.Now;
+        private Registration registration ;
 
         public MainWindow()
         {
+            registration = new Registration { ShiftStart = shiftTime };
             InitializeComponent();
         }
 
@@ -43,14 +47,6 @@ namespace GateKeeper.UI
         {
             registration.SubtractAdultOvernight();
             UpdateDisplay();
-        }
-
-        private void PerformSubmit(object sender, EventArgs e)
-        {
-            // registration.TimeStamp = DateTime.Now;
-            registrations.Add(registration);
-            registration = new Registration();
-            //TODO: update UI
         }
 
         private void PerformAddAdultOvernight(object sender, RoutedEventArgs e)
@@ -139,7 +135,7 @@ namespace GateKeeper.UI
 
         private void PerformAddYouthDaytrip(object sender, RoutedEventArgs e)
         {
-            registration.AddMemberDaytrip();
+            registration.AddYouthDaytrip();
             UpdateDisplay();
         }
 
@@ -213,6 +209,35 @@ namespace GateKeeper.UI
         {
             registration.AddOther();
             UpdateDisplay();
+        }
+
+        private void PerformSubmitAction(object sender, RoutedEventArgs e)
+        {
+            registrations.Add(registration);
+            var registrationText = registrations.Select(r => r.ToString());
+            var jasonNeedsAName = string.Join("\n", registrationText);
+            jasonNeedsAName = registration.GetHeaders() + "\n" + jasonNeedsAName;
+            File.WriteAllText($"c:\\war\\registrations{shiftTime:yyyyMMddhhmm}.csv", jasonNeedsAName);
+            PerformClearAction();
+        }
+
+        private void PerformClearAction(object sender, RoutedEventArgs e)
+        {
+            PerformClearAction();
+        }
+
+        private void PerformClearAction()
+        {
+            registration = new Registration();
+            registration.ShiftStart = shiftTime;
+            UpdateDisplay();
+        }
+
+        private void PerformSaveAction(object sender, RoutedEventArgs e)
+        {
+            shiftTime = DateTime.Now;
+            PerformClearAction();
+            registrations.Clear();
         }
     }
 }

@@ -42,6 +42,7 @@ namespace GateKeeper.Logic
         public int DaytripConversionCount { get; private set; }
         public int TotalPrice { get; private set; }
         public int TotalCount { get; private set; }
+        public DateTime ShiftStart { get; set; }
 
         public void AddAdultOvernight()
         {
@@ -121,7 +122,7 @@ namespace GateKeeper.Logic
         {
             if (Under6OvernightCount > 0)
             {
-                ChildOvernightCount--;
+                Under6OvernightCount--;
             }
             UpdateTotals();
         }
@@ -289,5 +290,15 @@ namespace GateKeeper.Logic
             FindTotalPrice();
         }
 
+        public override string ToString()
+        {
+            return $"{ShiftStart}, {AdultOvernightCount}, {AdultOvernightTotalPrice}, {MemberOvernightCount}, {MemberOvernightTotalPrice}, {YouthOvernightCount}, {YouthOvernightTotalPrice}, {ChildOvernightCount}, {ChildOvernightTotalPrice}, {Under6OvernightCount}, {AdultDaytripCount}, {AdultDaytripTotalPrice}, {MemberDaytripCount}, {MemberDaytripTotalPrice}, {YouthDaytripCount}, {YouthDaytripTotalPrice}, {ChildDaytripCount}, {ChildDaytripTotalPrice}, {Under6DaytripCount}, {DaytripConversionCount}, {LocalCount}, {CompCount}, {OtherCount}";
+        }
+
+        public string GetHeaders()
+        {
+            return "ShiftStart, AdultOvernightCount, AdultOvernightTotalPrice, MemberOvernightCount, MemberOvernightTotalPrice, YouthOvernightCount, YouthOvernightTotalPrice, ChildOvernightCount, ChildOvernightTotalPrice, Under6OvernightCount, AdultDaytripCount, AdultDaytripTotalPrice, MemberDaytripCount, MemberDaytripTotalPrice, YouthDaytripCount, YouthDaytripTotalPrice, ChildDaytripCount, ChildDaytripTotalPrice, Under6DaytripCount, DaytripConversionCount, LocalCount, CompCount, OtherCount";
+
+        }
     }
 }

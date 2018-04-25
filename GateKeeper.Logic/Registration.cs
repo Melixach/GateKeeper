@@ -17,6 +17,8 @@ namespace GateKeeper.Logic
         const int MemberDaytripPrice = 20;
         const int YouthDaytripPrice = 10;
         const int ChildDaytripPrice = 5;
+        const int LocalPrice = 5;
+        const int NMRConversionPrice = 5;
 
         public int AdultOvernightCount { get; private set; }
         public int AdultOvernightTotalPrice { get; private set; }
@@ -37,8 +39,10 @@ namespace GateKeeper.Logic
         public int ChildDaytripTotalPrice { get; private set; }
         public int Under6DaytripCount { get; private set; }
         public int LocalCount { get; private set; }
+        public int LocalTotalPrice { get; private set; }
         public int CompCount { get; private set; }
-        public int OtherCount { get; private set; }
+        public int NMRConversionCount { get; private set; }
+        public int NMRConversionTotalPrice { get; private set; }
         public int DaytripConversionCount { get; private set; }
         public int TotalPrice { get; private set; }
         public int TotalCount { get; private set; }
@@ -213,6 +217,7 @@ namespace GateKeeper.Logic
         public void AddLocalDaytrip()
         {
             LocalCount++;
+            LocalTotalPrice = LocalPrice * LocalCount;
             UpdateTotals();
         }
 
@@ -222,6 +227,7 @@ namespace GateKeeper.Logic
             {
                 LocalCount--;
             }
+            LocalTotalPrice = LocalPrice * LocalCount;
             UpdateTotals();
         }
 
@@ -240,18 +246,20 @@ namespace GateKeeper.Logic
             UpdateTotals();
         }
 
-        public void AddOther()
+        public void AddNMRConversion()
         {
-            OtherCount++;
+            NMRConversionCount++;
+            NMRConversionTotalPrice = NMRConversionPrice * NMRConversionCount;
             UpdateTotals();
         }
 
-        public void SubtractOther()
+        public void SubtractNMRConversion()
         {
-            if (OtherCount > 0)
+            if (NMRConversionCount > 0)
             {
-                OtherCount--;
+                NMRConversionCount--;
             }
+            NMRConversionTotalPrice = NMRConversionPrice * NMRConversionCount;
             UpdateTotals();
         }
 
@@ -273,7 +281,7 @@ namespace GateKeeper.Logic
         public void FindTotalPrice()
         {
             TotalPrice = AdultOvernightTotalPrice + MemberOvernightTotalPrice + YouthOvernightTotalPrice +
-            ChildOvernightTotalPrice + AdultDaytripTotalPrice + MemberDaytripTotalPrice + YouthDaytripTotalPrice +
+            ChildOvernightTotalPrice + AdultDaytripTotalPrice + MemberDaytripTotalPrice + YouthDaytripTotalPrice + NMRConversionTotalPrice + LocalTotalPrice +
             ChildDaytripTotalPrice;
         }
 
@@ -281,7 +289,7 @@ namespace GateKeeper.Logic
         {
             TotalCount = AdultOvernightCount + MemberOvernightCount + YouthOvernightCount +
             ChildOvernightCount + Under6OvernightCount + AdultDaytripCount + MemberDaytripCount + YouthDaytripCount +
-            ChildDaytripCount + Under6DaytripCount + LocalCount + CompCount + OtherCount + DaytripConversionCount;
+            ChildDaytripCount + Under6DaytripCount + LocalCount + CompCount + NMRConversionCount + DaytripConversionCount;
         }
 
         public void UpdateTotals()
@@ -292,7 +300,7 @@ namespace GateKeeper.Logic
 
         public override string ToString()
         {
-            return $"{ShiftStart}, {AdultOvernightCount}, {AdultOvernightTotalPrice}, {MemberOvernightCount}, {MemberOvernightTotalPrice}, {YouthOvernightCount}, {YouthOvernightTotalPrice}, {ChildOvernightCount}, {ChildOvernightTotalPrice}, {Under6OvernightCount}, {AdultDaytripCount}, {AdultDaytripTotalPrice}, {MemberDaytripCount}, {MemberDaytripTotalPrice}, {YouthDaytripCount}, {YouthDaytripTotalPrice}, {ChildDaytripCount}, {ChildDaytripTotalPrice}, {Under6DaytripCount}, {DaytripConversionCount}, {LocalCount}, {CompCount}, {OtherCount}";
+            return $"{ShiftStart}, {AdultOvernightCount}, {AdultOvernightTotalPrice}, {MemberOvernightCount}, {MemberOvernightTotalPrice}, {YouthOvernightCount}, {YouthOvernightTotalPrice}, {ChildOvernightCount}, {ChildOvernightTotalPrice}, {Under6OvernightCount}, {AdultDaytripCount}, {AdultDaytripTotalPrice}, {MemberDaytripCount}, {MemberDaytripTotalPrice}, {YouthDaytripCount}, {YouthDaytripTotalPrice}, {ChildDaytripCount}, {ChildDaytripTotalPrice}, {Under6DaytripCount}, {DaytripConversionCount}, {LocalCount}, {CompCount}, {NMRConversionCount}";
         }
 
         public string GetHeaders()

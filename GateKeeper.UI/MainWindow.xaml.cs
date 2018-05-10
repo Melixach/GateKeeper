@@ -37,7 +37,7 @@ namespace GateKeeper.UI
             daytripConversionDisplay.Content = registration.DaytripConversionCount;
             localDisplay.Content = registration.LocalCount;
             compDisplay.Content = registration.CompCount;
-            otherDisplay.Content = registration.OtherCount;
+            otherDisplay.Content = registration.NMRConversionCount;
             // displayTotalCount.Content = registration.TotalCount;
             displayTotalCount.Content = $"{registration.TotalCount} => ${registration.TotalPrice}";
            // displayTotalPrice.Content = registration.TotalPrice;
@@ -201,13 +201,13 @@ namespace GateKeeper.UI
 
         private void PerformMinusOther(object sender, RoutedEventArgs e)
         {
-            registration.SubtractOther();
+            registration.SubtractNMRConversion();
             UpdateDisplay();
         }
 
         private void PerformAddOther(object sender, RoutedEventArgs e)
         {
-            registration.AddOther();
+            registration.AddNMRConversion();
             UpdateDisplay();
         }
 

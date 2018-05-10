@@ -19,6 +19,7 @@ namespace GateKeeper.Logic
         const int ChildDaytripPrice = 5;
         const int LocalPrice = 5;
         const int NMRConversionPrice = 5;
+        const int FeeReimbursmentPrice = 12;
 
         public int AdultOvernightCount { get; private set; }
         public int AdultOvernightTotalPrice { get; private set; }
@@ -44,6 +45,8 @@ namespace GateKeeper.Logic
         public int NMRConversionCount { get; private set; }
         public int NMRConversionTotalPrice { get; private set; }
         public int DaytripConversionCount { get; private set; }
+        public int FeeReimbursementTotalPrice { get; private set; }
+        public int FeeReimbursementCount { get; private set; }
         public int TotalPrice { get; private set; }
         public int TotalCount { get; private set; }
         public DateTime ShiftStart { get; set; }
@@ -278,18 +281,35 @@ namespace GateKeeper.Logic
             UpdateTotals();
         }
 
+        public void AddFeeReimbursement()
+        {
+            FeeReimbursementCount++;
+            FeeReimbursementTotalPrice = FeeReimbursmentPrice * FeeReimbursementCount;
+            UpdateTotals();
+        }
+
+        public void SubtractFeeReimbursement()
+        {
+            if (FeeReimbursementCount > 0)
+            {
+                FeeReimbursementCount--;
+            }
+            FeeReimbursementTotalPrice = FeeReimbursmentPrice * FeeReimbursementCount;
+            UpdateTotals();
+        }
+
         public void FindTotalPrice()
         {
             TotalPrice = AdultOvernightTotalPrice + MemberOvernightTotalPrice + YouthOvernightTotalPrice +
             ChildOvernightTotalPrice + AdultDaytripTotalPrice + MemberDaytripTotalPrice + YouthDaytripTotalPrice + NMRConversionTotalPrice + LocalTotalPrice +
-            ChildDaytripTotalPrice;
+            ChildDaytripTotalPrice + FeeReimbursementTotalPrice;
         }
 
         public void FindTotalCount()
         {
             TotalCount = AdultOvernightCount + MemberOvernightCount + YouthOvernightCount +
             ChildOvernightCount + Under6OvernightCount + AdultDaytripCount + MemberDaytripCount + YouthDaytripCount +
-            ChildDaytripCount + Under6DaytripCount + LocalCount + CompCount + NMRConversionCount + DaytripConversionCount;
+            ChildDaytripCount + Under6DaytripCount + LocalCount + CompCount + NMRConversionCount + DaytripConversionCount + FeeReimbursementCount;
         }
 
         public void UpdateTotals()
@@ -301,12 +321,13 @@ namespace GateKeeper.Logic
         public override string ToString()
         {
             return $"{ShiftStart}, {AdultOvernightCount}, {AdultOvernightTotalPrice}, {MemberOvernightCount}, {MemberOvernightTotalPrice}, {YouthOvernightCount}, {YouthOvernightTotalPrice}, {ChildOvernightCount}, {ChildOvernightTotalPrice}, {Under6OvernightCount}, {AdultDaytripCount}, {AdultDaytripTotalPrice}, {MemberDaytripCount}, {MemberDaytripTotalPrice}, {YouthDaytripCount}, {YouthDaytripTotalPrice}, {ChildDaytripCount}, {ChildDaytripTotalPrice}, {Under6DaytripCount}, {DaytripConversionCount}, {LocalCount}, {CompCount}, {NMRConversionCount}";
+            //add in fee reimburment line
         }
 
         public string GetHeaders()
         {
-            return "ShiftStart, AdultOvernightCount, AdultOvernightTotalPrice, MemberOvernightCount, MemberOvernightTotalPrice, YouthOvernightCount, YouthOvernightTotalPrice, ChildOvernightCount, ChildOvernightTotalPrice, Under6OvernightCount, AdultDaytripCount, AdultDaytripTotalPrice, MemberDaytripCount, MemberDaytripTotalPrice, YouthDaytripCount, YouthDaytripTotalPrice, ChildDaytripCount, ChildDaytripTotalPrice, Under6DaytripCount, DaytripConversionCount, LocalCount, CompCount, OtherCount";
-
+            return "ShiftStart, AdultOvernightCount, AdultOvernightTotalPrice, MemberOvernightCount, MemberOvernightTotalPrice, YouthOvernightCount, YouthOvernightTotalPrice, ChildOvernightCount, ChildOvernightTotalPrice, Under6OvernightCount, AdultDaytripCount, AdultDaytripTotalPrice, MemberDaytripCount, MemberDaytripTotalPrice, YouthDaytripCount, YouthDaytripTotalPrice, ChildDaytripCount, ChildDaytripTotalPrice, Under6DaytripCount, DaytripConversionCount, LocalCount, CompCount, NMRConversionCount";
+            //add in fee reimburment line
         }
     }
 }

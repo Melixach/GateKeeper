@@ -82,6 +82,8 @@
             <Button x:Name="plusAdultOvernightAction" Grid.Column="3" Grid.Row="1" Click="PerformAddAdultOvernight">+</Button>
             <Button x:Name="minusMemberOvernightAction" Grid.Column="1" Grid.Row="2" Click="PerformMinusMemberOvernight">-</Button>
             <Button x:Name="plusMemberOvernightAction" Grid.Column="3" Grid.Row="2" Click="PerformAddMemberOvernight">+</Button>
+            <Button x:Name="minusYouthOvernightAction" Grid.Column="1" Grid.Row="3" Click="PerformMinusYouthOvernightAction">-</Button>
+            <Button x:Name="plusYouthOvernightAction" Grid.Column="3" Grid.Row="3" Click="PerformAddYouthOvernightAction">+</Button>
             <Button x:Name="minusChildOvernightAction" Grid.Column="1" Grid.Row="4" Click="PerformMinusChildOvernight">-</Button>
             <Button x:Name="plusChildOvernightAction" Grid.Column="3" Grid.Row="4" Click="PerformAddChildOvernight">+</Button>
             <Button x:Name="minusUnder6OvernightAction" Grid.Column="1" Grid.Row="5" Click="PerformMinusUnder6Overnight" >-</Button>
@@ -96,14 +98,16 @@
             <Button x:Name="plusChildDaytripAction" Grid.Column="3" Grid.Row="9" Click="PerformAddChildDaytrip">+</Button>
             <Button x:Name="minusUnder6DaytripAction" Grid.Column="1" Grid.Row="10" Click="PerformMinusUnder6Daytrip">-</Button>
             <Button x:Name="plusUnder6DaytripAction" Grid.Column="3" Grid.Row="10" Click="PerformAddUnder6Daytrip">+</Button>
-            <Button x:Name="minusDaytripConversion" Grid.Column="1" Grid.Row="11" Click="PerformMinusDaytripConversion">-</Button>
+            <Button x:Name="minusDaytripConversionAction" Grid.Column="1" Grid.Row="11" Click="PerformMinusDaytripConversion">-</Button>
             <Button x:Name="plusDaytripConversionAction" Grid.Column="3" Grid.Row="11" Click="PerformAddDaytripConversion">+</Button>
             <Button x:Name="minusLocalAction" Grid.Column="1" Grid.Row="12" Click="PerformMinusLocal">-</Button>
             <Button x:Name="plusLocalAction" Grid.Column="3" Grid.Row="12" Click="PerformAddLocalDaytrip">+</Button>
             <Button x:Name="minusCompAction" Grid.Column="1" Grid.Row="13" Click="PerformMinusComp">-</Button>
             <Button x:Name="plusCompAction" Grid.Column="3" Grid.Row="13" Click="PerformAddComp">+</Button>
-            <Button x:Name="minusOtherAction" Grid.Column="1" Grid.Row="14" Click="PerformMinusOther">-</Button>
-            <Button x:Name="plusOtherAction" Grid.Column="3" Grid.Row="14" Click="PerformAddOther">+</Button>
+            <Button x:Name="minusNMRConversionAction" Grid.Column="1" Grid.Row="14" Click="PerformMinusNMRConversion">-</Button>
+            <Button x:Name="plusNMRConversionAction" Grid.Column="3" Grid.Row="14" Click="PerformAddNMRConversion">+</Button>
+            <Button x:Name="minusFeeReimbursementAction" Grid.Column="1" Grid.Row="15" Click="PerformMinusFeeReimbursement">-</Button>
+            <Button x:Name="plusFeeReimbursementAction" Grid.Column="3" Grid.Row="15" Click="PerformAddFeeReimbursement">+</Button>
 
             <Label Grid.Column="0" Grid.Row="1" >Adult Overnight</Label>
             <Label Name="adultOvernightDisplay" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" ></Label>
@@ -111,11 +115,8 @@
             <Label Grid.Column="0" Grid.Row="2" >Member Overnight</Label>
             <Label x:Name="memberOvernightDisplay" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" ></Label>
 
-            <Button x:Name="minusYouthOvernightAction" Grid.Column="1" Grid.Row="3" Click="PerformMinusYouthOvernightAction">-</Button>
-            <Button x:Name="plusYouthOvernightAction" Grid.Column="3" Grid.Row="3" Click="PerformAddYouthOvernightAction">+</Button>
             <Label Grid.Column="0" Grid.Row="3" >Youth (13-17) Overnight</Label>
             <Label x:Name="youthOvernightDisplay" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" ></Label>
-
 
             <Label Grid.Column="0" Grid.Row="4" >Child  (6-12) Overnight</Label>
             <Label x:Name="childOvernightDisplay" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" ></Label>
@@ -148,7 +149,10 @@
             <Label x:Name="compDisplay" Grid.Column="2" Grid.Row="13" HorizontalAlignment="Center" ></Label>
 
             <Label Grid.Column="0" Grid.Row="14" >NMR Conversion</Label>
-            <Label x:Name="otherDisplay" Grid.Column="2" Grid.Row="14" HorizontalAlignment="Center" ></Label>
+            <Label x:Name="nmrConversionDisplay" Grid.Column="2" Grid.Row="14" HorizontalAlignment="Center" ></Label>
+
+            <Label Grid.Column="0" Grid.Row="14" >Fee Reimbursement</Label>
+            <Label x:Name="feeReimbursementDisplay" Grid.Column="2" Grid.Row="15" HorizontalAlignment="Center" ></Label>
 
             <Label Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Right">Total</Label>
             <Label x:Name="displayTotalCount" Grid.Column="2" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Row="15" FontWeight="Bold"></Label>

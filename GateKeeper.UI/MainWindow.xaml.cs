@@ -199,15 +199,27 @@ namespace GateKeeper.UI
             UpdateDisplay();
         }
 
-        private void PerformMinusOther(object sender, RoutedEventArgs e)
+        private void PerformMinusNMRConversion(object sender, RoutedEventArgs e)
         {
             registration.SubtractNMRConversion();
             UpdateDisplay();
         }
 
-        private void PerformAddOther(object sender, RoutedEventArgs e)
+        private void PerformAddNMRConversion(object sender, RoutedEventArgs e)
         {
             registration.AddNMRConversion();
+            UpdateDisplay();
+        }
+
+        private void PerformAddFeeReimbursement(object sender, RoutedEventArgs e)
+        {
+            registration.AddFeeReimbursement();
+            UpdateDisplay();
+        }
+
+        private void PerformMinusFeeReimbursement(object sender, RoutedEventArgs e)
+        {
+            registration.SubtractFeeReimbursement();
             UpdateDisplay();
         }
 
@@ -239,5 +251,7 @@ namespace GateKeeper.UI
             PerformClearAction();
             registrations.Clear();
         }
+
+        
     }
 }

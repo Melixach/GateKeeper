@@ -12,13 +12,12 @@ namespace GateKeeper.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Registration> registrations = new List<Registration>();
-        private DateTime shiftTime = DateTime.Now;
         private Registration registration ;
 
         public MainWindow()
         {
-            registration = new Registration { ShiftStart = shiftTime };
+            registration = new Registration();
+            registration.ShiftStart = DateTime.Now;
             InitializeComponent();
         }
 
@@ -37,10 +36,9 @@ namespace GateKeeper.UI
             daytripConversionDisplay.Content = registration.DaytripConversionCount;
             localDisplay.Content = registration.LocalCount;
             compDisplay.Content = registration.CompCount;
-            otherDisplay.Content = registration.NMRConversionCount;
-            // displayTotalCount.Content = registration.TotalCount;
+            nmrConversionDisplay.Content = registration.NMRConversionCount;
+            feeReimbursementDisplay.Content = registration.FeeReimbursementCount;
             displayTotalCount.Content = $"{registration.TotalCount} => ${registration.TotalPrice}";
-           // displayTotalPrice.Content = registration.TotalPrice;
 
         }
         private void PerformRemoveAdultOvernight(object sender, EventArgs e)
@@ -225,12 +223,22 @@ namespace GateKeeper.UI
 
         private void PerformSubmitAction(object sender, RoutedEventArgs e)
         {
-            registrations.Add(registration);
-            var registrationText = registrations.Select(r => r.ToString());
-            var jasonNeedsAName = string.Join("\n", registrationText);
-            jasonNeedsAName = registration.GetHeaders() + "\n" + jasonNeedsAName;
-            File.WriteAllText($"c:\\war\\registrations{shiftTime:yyyyMMddhhmm}.csv", jasonNeedsAName);
+            WriteToFile(registration);
             PerformClearAction();
+        }
+
+        private void WriteToFile(Registration registration)
+        {
+            var fileName = $"c:\\war\\registrations_{shiftNameInput.Text}.csv";
+
+            var info = new FileInfo(fileName);
+
+            if(!info.Exists)
+            {
+                File.WriteAllLines(fileName, new string[] { registration.GetHeaders() });
+            }
+
+            File.AppendAllLines(fileName, new string[] { registration.ToString() });
         }
 
         private void PerformClearAction(object sender, RoutedEventArgs e)
@@ -241,17 +249,8 @@ namespace GateKeeper.UI
         private void PerformClearAction()
         {
             registration = new Registration();
-            registration.ShiftStart = shiftTime;
+            registration.ShiftStart = DateTime.Now;
             UpdateDisplay();
         }
-
-        private void PerformSaveAction(object sender, RoutedEventArgs e)
-        {
-            shiftTime = DateTime.Now;
-            PerformClearAction();
-            registrations.Clear();
-        }
-
-        
     }
 }

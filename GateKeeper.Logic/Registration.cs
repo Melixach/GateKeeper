@@ -320,14 +320,12 @@ namespace GateKeeper.Logic
 
         public override string ToString()
         {
-            return $"{ShiftStart}, {AdultOvernightCount}, {AdultOvernightTotalPrice}, {MemberOvernightCount}, {MemberOvernightTotalPrice}, {YouthOvernightCount}, {YouthOvernightTotalPrice}, {ChildOvernightCount}, {ChildOvernightTotalPrice}, {Under6OvernightCount}, {AdultDaytripCount}, {AdultDaytripTotalPrice}, {MemberDaytripCount}, {MemberDaytripTotalPrice}, {YouthDaytripCount}, {YouthDaytripTotalPrice}, {ChildDaytripCount}, {ChildDaytripTotalPrice}, {Under6DaytripCount}, {DaytripConversionCount}, {LocalCount}, {CompCount}, {NMRConversionCount}";
-            //add in fee reimburment line
+            return $"{ShiftStart}, {AdultOvernightCount}, {AdultOvernightTotalPrice}, {MemberOvernightCount}, {MemberOvernightTotalPrice}, {YouthOvernightCount}, {YouthOvernightTotalPrice}, {ChildOvernightCount}, {ChildOvernightTotalPrice}, {Under6OvernightCount}, {AdultDaytripCount}, {AdultDaytripTotalPrice}, {MemberDaytripCount}, {MemberDaytripTotalPrice}, {YouthDaytripCount}, {YouthDaytripTotalPrice}, {ChildDaytripCount}, {ChildDaytripTotalPrice}, {Under6DaytripCount}, {DaytripConversionCount}, {LocalCount}, {CompCount}, {NMRConversionCount}, {FeeReimbursementCount}, {FeeReimbursementTotalPrice}";
         }
 
         public string GetHeaders()
         {
-            return "ShiftStart, AdultOvernightCount, AdultOvernightTotalPrice, MemberOvernightCount, MemberOvernightTotalPrice, YouthOvernightCount, YouthOvernightTotalPrice, ChildOvernightCount, ChildOvernightTotalPrice, Under6OvernightCount, AdultDaytripCount, AdultDaytripTotalPrice, MemberDaytripCount, MemberDaytripTotalPrice, YouthDaytripCount, YouthDaytripTotalPrice, ChildDaytripCount, ChildDaytripTotalPrice, Under6DaytripCount, DaytripConversionCount, LocalCount, CompCount, NMRConversionCount";
-            //add in fee reimburment line
+            return "ShiftStart, AdultOvernightCount, AdultOvernightTotalPrice, MemberOvernightCount, MemberOvernightTotalPrice, YouthOvernightCount, YouthOvernightTotalPrice, ChildOvernightCount, ChildOvernightTotalPrice, Under6OvernightCount, AdultDaytripCount, AdultDaytripTotalPrice, MemberDaytripCount, MemberDaytripTotalPrice, YouthDaytripCount, YouthDaytripTotalPrice, ChildDaytripCount, ChildDaytripTotalPrice, Under6DaytripCount, DaytripConversionCount, LocalCount, CompCount, NMRConversionCount, FeeReimbursementCount, FeeReimbursementTotalPrice";
         }
     }
 }

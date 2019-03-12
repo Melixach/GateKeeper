@@ -5,88 +5,174 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GateKeeper.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700
-        " Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
+        Title="MainWindow" Height="1920" Width="1200">
+
+    <DockPanel LastChildFill="False" Background="CadetBlue">
+        <DockPanel.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="FontSize" Value="28"></Setter>
+                <Setter Property="Background" Value="LightBlue"></Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="28"></Setter>
+                <Setter Property="Background" Value="Transparent"></Setter>
+            </Style>
+        </DockPanel.Resources>
+
+        <Grid DockPanel.Dock="Top" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label x:Name="shiftNamePromptName" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" >Shift Name:</Label>
+            <DockPanel Grid.Column="1" Grid.Row="0" LastChildFill="True">
+                <TextBox x:Name="shiftNameInput" Height="40" HorizontalAlignment="Stretch"  VerticalAlignment="Center"></TextBox>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="-2,0,2,0" DockPanel.Dock="Top">
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="2,12,12,2"></Setter>
+                    <Setter Property="FontSize" Value="20"></Setter>
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Setter Property="Background" Value="LightBlue"></Setter>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"></Setter>
+                    <Setter Property="Foreground" Value="White"></Setter>
+                </Style>
+                <Style TargetType="RowDefinition">
+                    <Setter Property="Height" Value="50"></Setter>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridRow}">
+                                <Border Padding="114">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="28"></RowDefinition>
-                <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
-         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">Current Shift</Label>
-        <Button Grid.Column="1" Grid.Row="1">-</Button>
-        <Button Grid.Column="3" Grid.Row="1">+</Button>
-        <Button Grid.Column="1" Grid.Row="2">-</Button>
-        <Button Grid.Column="3" Grid.Row="2">+</Button>
-        <Button Grid.Column="1" Grid.Row="3">-</Button>
-        <Button Grid.Column="3" Grid.Row="3">+</Button>
-        <Button Grid.Column="1" Grid.Row="4">-</Button>
-        <Button Grid.Column="3" Grid.Row="4">+</Button>
-        <Button Grid.Column="1" Grid.Row="5">-</Button>
-        <Button Grid.Column="3" Grid.Row="5">+</Button>
-        <Button Grid.Column="1" Grid.Row="6">-</Button>
-        <Button Grid.Column="3" Grid.Row="6">+</Button>
-        <Button Grid.Column="1" Grid.Row="7">-</Button>
-        <Button Grid.Column="3" Grid.Row="7">+</Button>
-        <Button Grid.Column="1" Grid.Row="8">-</Button>
-        <Button Grid.Column="3" Grid.Row="8">+</Button>
-        <Button Grid.Column="1" Grid.Row="9">-</Button>
-        <Button Grid.Column="3" Grid.Row="9">+</Button>
-        <Button Grid.Column="1" Grid.Row="10">-</Button>
-        <Button Grid.Column="3" Grid.Row="10">+</Button>
-        <Button Grid.Column="1" Grid.Row="11">-</Button>
-        <Button Grid.Column="3" Grid.Row="11">+</Button>
-        <Button Grid.Column="1" Grid.Row="12">-</Button>
-        <Button Grid.Column="3" Grid.Row="12">+</Button>
-        <Button Grid.Column="1" Grid.Row="13">-</Button>
-        <Button Grid.Column="3" Grid.Row="13">+</Button>
-        <Button Grid.Column="1" Grid.Row="14">-</Button>
-        <Button Grid.Column="3" Grid.Row="14">+</Button>
-        <Label Grid.Column="0" Grid.Row="1" >Adult Overnight</Label>
-        <Label Grid.Column="0" Grid.Row="2" >Member Overnight</Label>
-        <Label Grid.Column="0" Grid.Row="3" >Youth (13-17) Overnight</Label>
-        <Label Grid.Column="0" Grid.Row="4" >Child  (6-12) Overnight</Label>
-        <Label Grid.Column="0" Grid.Row="5" >Child  (0-5) Overnight</Label>
-        <Label Grid.Column="0" Grid.Row="6" >Adult Daytrip</Label>
-        <Label Grid.Column="0" Grid.Row="7" >Member Daytrip</Label>
-        <Label Grid.Column="0" Grid.Row="8" >Youth (13-17) Daytrip</Label>
-        <Label Grid.Column="0" Grid.Row="9" >Child (6-12) Daytrip</Label>
-        <Label Grid.Column="0" Grid.Row="10" >Child (0-5) Daytrip</Label>
-        <Label Grid.Column="0" Grid.Row="11" >Daytrip Conversion</Label>
-        <Label Grid.Column="0" Grid.Row="12" >Local</Label>
-        <Label Grid.Column="0" Grid.Row="13" >Comp</Label>
-        <Label Grid.Column="0" Grid.Row="14" >Other</Label>
-        <Label Grid.Column="2" Grid.Row="1" ></Label>
-        <Label Grid.Column="2" Grid.Row="2" ></Label>
-        <Label Grid.Column="2" Grid.Row="3" ></Label>
-        <Label Grid.Column="2" Grid.Row="4" ></Label>
-        <Label Grid.Column="2" Grid.Row="5" ></Label>
-        <Label Grid.Column="2" Grid.Row="6" ></Label>
-        <Label Grid.Column="2" Grid.Row="7" ></Label>
-        <Label Grid.Column="2" Grid.Row="8" ></Label>
-        <Label Grid.Column="2" Grid.Row="9" ></Label>
-        <Label Grid.Column="2" Grid.Row="10" ></Label>
-        <Label Grid.Column="2" Grid.Row="11" ></Label>
-        <Label Grid.Column="2" Grid.Row="12" ></Label>
-        <Label Grid.Column="2" Grid.Row="13" ></Label>
-        <Label Grid.Column="2" Grid.Row="14" ></Label>
-    </Grid>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="1" >Adult Overnight</Label>
+            <Button Grid.Column="1" Grid.Row="1" x:Name="minusAdultOvernightAction" Click="PerformRemoveAdultOvernight">-</Button>
+            <Label Name="adultOvernightDisplay" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusAdultOvernightAction" Grid.Column="3" Grid.Row="1" Click="PerformAddAdultOvernight">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="2" >Member Overnight</Label>
+            <Button x:Name="minusMemberOvernightAction" Grid.Column="1" Grid.Row="2" Click="PerformMinusMemberOvernight">-</Button>
+            <Label x:Name="memberOvernightDisplay" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusMemberOvernightAction" Grid.Column="3" Grid.Row="2" Click="PerformAddMemberOvernight">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="3" >Youth (13-17) Overnight</Label>
+            <Button x:Name="minusYouthOvernightAction" Grid.Column="1" Grid.Row="3" Click="PerformMinusYouthOvernightAction">-</Button>
+            <Label x:Name="youthOvernightDisplay" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusYouthOvernightAction" Grid.Column="3" Grid.Row="3" Click="PerformAddYouthOvernightAction">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="4" >Child  (6-12) Overnight</Label>
+            <Button x:Name="minusChildOvernightAction" Grid.Column="1" Grid.Row="4" Click="PerformMinusChildOvernight">-</Button>
+            <Label x:Name="childOvernightDisplay" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusChildOvernightAction" Grid.Column="3" Grid.Row="4" Click="PerformAddChildOvernight">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="5" >Child  (0-5) Overnight</Label>
+            <Button x:Name="minusUnder6OvernightAction" Grid.Column="1" Grid.Row="5" Click="PerformMinusUnder6Overnight" >-</Button>
+            <Label x:Name="under6OvernightDisplay" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusUnder6OvernightAction" Grid.Column="3" Grid.Row="5" Click="PerformAddUnder6Overnight">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="6" >Adult Daytrip</Label>
+            <Button x:Name="minusAdultDaytripAction" Grid.Column="1" Grid.Row="6" Click="PerformMinusAdultDaytrip">-</Button>
+            <Label x:Name="adultDaytripDisplay" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusAdultDaytripAction" Grid.Column="3" Grid.Row="6" Click="PerformAddAdultDaytrip">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="7" >Member Daytrip</Label>
+            <Button x:Name="minusMemberDaytripAction" Grid.Column="1" Grid.Row="7" Click="PerformMinusMemberDaytrip">-</Button>
+            <Label x:Name="memberDaytripDisplay" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusMemberDaytripAction" Grid.Column="3" Grid.Row="7" Click="PerformAddMemberDaytrip">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="8" >Youth (13-17) Daytrip</Label>
+            <Button x:Name="minusYouthDaytripAction" Grid.Column="1" Grid.Row="8" Click="PerformMinusYouthDaytrip">-</Button>
+            <Label x:Name="youthDaytripDisplay" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusYouthDaytripAction" Grid.Column="3" Grid.Row="8" Click="PerformAddYouthDaytrip">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="9" >Child (6-12) Daytrip</Label>
+            <Button x:Name="minusChildDaytripAction" Grid.Column="1" Grid.Row="9" Click="PerformMinusChildDaytrip">-</Button>
+            <Label x:Name="childDaytripDisplay" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusChildDaytripAction" Grid.Column="3" Grid.Row="9" Click="PerformAddChildDaytrip">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="10" >Child (0-5) Daytrip</Label>
+            <Button x:Name="minusUnder6DaytripAction" Grid.Column="1" Grid.Row="10" Click="PerformMinusUnder6Daytrip">-</Button>
+            <Label x:Name="under6DaytripDisplay" Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusUnder6DaytripAction" Grid.Column="3" Grid.Row="10" Click="PerformAddUnder6Daytrip">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="11" >Daytrip Conversion</Label>
+            <Button x:Name="minusDaytripConversionAction" Grid.Column="1" Grid.Row="11" Click="PerformMinusDaytripConversion">-</Button>
+            <Label x:Name="daytripConversionDisplay" Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusDaytripConversionAction" Grid.Column="3" Grid.Row="11" Click="PerformAddDaytripConversion">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="12" >Local</Label>
+            <Button x:Name="minusLocalAction" Grid.Column="1" Grid.Row="12" Click="PerformMinusLocal">-</Button>
+            <Label x:Name="localDisplay" Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusLocalAction" Grid.Column="3" Grid.Row="12" Click="PerformAddLocalDaytrip">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="13" >Comp</Label>
+            <Button x:Name="minusCompAction" Grid.Column="1" Grid.Row="13" Click="PerformMinusComp">-</Button>
+            <Label x:Name="compDisplay" Grid.Column="2" Grid.Row="13" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusCompAction" Grid.Column="3" Grid.Row="13" Click="PerformAddComp">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="14" >NMR Conversion</Label>
+            <Button x:Name="minusNMRConversionAction" Grid.Column="1" Grid.Row="14" Click="PerformMinusNMRConversion">-</Button>
+            <Label x:Name="nmrConversionDisplay" Grid.Column="2" Grid.Row="14" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusNMRConversionAction" Grid.Column="3" Grid.Row="14" Click="PerformAddNMRConversion">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="15" >Fee Reimbursement</Label>
+            <Button x:Name="minusFeeReimbursementAction" Grid.Column="1" Grid.Row="15" Click="PerformMinusFeeReimbursement">-</Button>
+            <Label x:Name="feeReimbursementDisplay" Grid.Column="2" Grid.Row="15" HorizontalAlignment="Center" ></Label>
+            <Button x:Name="plusFeeReimbursementAction" Grid.Column="3" Grid.Row="15" Click="PerformAddFeeReimbursement">+</Button>
+
+            <Label Grid.Column="0" Grid.Row="16" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Right">Total</Label>
+            <Label x:Name="displayTotalCount" Grid.Column="2" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Row="16" FontWeight="Bold"></Label>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button x:Name="Clear" Grid.Column="0" Grid.Row="0" Click="PerformClearAction" Background="LightBlue">Clear</Button>
+            <Button x:Name="Submit" Grid.Column="1" Grid.Row="0" Click="PerformSubmitAction" Background="LightBlue">Submit</Button>
+        </Grid>
+    </DockPanel>
 </Window>
